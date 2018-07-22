@@ -8,6 +8,13 @@
 
 ## Lay out
 
+## Sizes
+
+1 rem = 8 pixels
+1 unit = 8x8 pixel square
+
+### Flow
+
 Register
 
   Name
