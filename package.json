@@ -1,0 +1,11 @@
+{
+  "name": "OKRs-App",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Mister-Corn/OKRs-App.git",
+  "contributors": [
+    {"name": "samarv"},
+    {"name": "Mister-Corn"}
+  ],
+  "license": "MIT"
+}
