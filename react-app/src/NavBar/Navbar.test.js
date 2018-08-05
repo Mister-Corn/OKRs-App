@@ -23,7 +23,7 @@ test("Navbar renders a classed div which accepts props and displays links.", () 
     <Navbar>
       <Navbar.LinkDiv data-testid='navbar--links'>
         <Navbar.Link to='/' data-testid='navbar--links-link'>Home</Navbar.Link>
-        <Navbar.Link to='/about' data-testid='navbar--links-link'>About</Navbar.Link>
+        <Navbar.Link to='/about' data-testid='navbar--links-link'>{false}</Navbar.Link>
       </Navbar.LinkDiv>
     </Navbar>
   );

@@ -17,7 +17,6 @@ Logo.proptypes = {
 };
 
 const LinkDiv = function ClassedDivToPutLinksInComp({ children, className, ...props }) {
-  console.log('children:',children,'className:',className,'props:',props);
   return (
     <div className={`navbar--links ${className}`} {...props}>{children}</div>
   );
@@ -35,8 +34,8 @@ const InLink = function CreateLinkComp({ to, children, ...props }) {
 }
 
 Link.proptypes = {
-  to: PropTypes.string,
-  children: PropTypes.arrayOf(PropTypes.String),
+  to: PropTypes.string.isRequired,
+  children: PropTypes.string,
 };
 
 /* --- Compound Component --- */
@@ -56,5 +55,7 @@ export default class Navbar extends Component {
 
 /*
   Use below pattern if children need access to state or other props 
-  { React.Children.map(this.props.children, child => React.cloneElement(child)) }
+  { React.Children.map(this.props.children, child => React.cloneElement(child. {
+    // shared state/prop data
+  })) }
 */ 
