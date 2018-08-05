@@ -10,34 +10,37 @@ import logo from './logo.svg';
 
 afterEach(cleanup); 
 
-test("Navbar component renders.", () => {
+test("Navbar component renders and accepts props.", () => {
   // Arrange
-  const { getByTestId } = renderWithRouter(<Navbar />);
+  const { getByTestId } = renderWithRouter(<Navbar data-testid='navbar'/>);
   // Assert
   expect(getByTestId("navbar")).toBeInTheDocument();
 });
 
-// test("Navbar renders a classed div with links from children.--NO_TRUST", () => {
-//   // Arrange
-//   const { getByText } = renderWithRouter(
-//     <Navbar>
-//       <Navbar.LinkDiv>
-//         <Navbar.Link to='/'>Home</Navbar.Link>
-//       </Navbar.LinkDiv>
-//     </Navbar>
-//   );
-//   // Assert
-//   // expect(getByText('navbar--links')).toBeInTheDocument();
-//   expect(getByText('Home')).toBeInTheDocument();
-// });
+test("Navbar renders a classed div which accepts props and displays links.", () => {
+  // Arrange
+  const { getByText, getByTestId } = renderWithRouter(
+    <Navbar>
+      <Navbar.LinkDiv data-testid='navbar--links'>
+        <Navbar.Link to='/' data-testid='navbar--links-link'>Home</Navbar.Link>
+        <Navbar.Link to='/about' data-testid='navbar--links-link'>About</Navbar.Link>
+      </Navbar.LinkDiv>
+    </Navbar>
+  );
+  // Assert
+  expect(getByTestId('navbar--links')).toBeInTheDocument();
+  expect(getByTestId('navbar--links-link')).toBeInTheDocument();
+  expect(getByText('Home')).toBeInTheDocument();
+});
 
 test("Navbar displays a logo.", () => {
   //Arrange
-  const { getByAltText } = renderWithRouter(
+  const { getByAltText, getByTestId } = renderWithRouter(
     <Navbar>
-      <Navbar.Logo src={logo}/>)
+      <Navbar.Logo data-testid='navbar--logo' src={logo}/>)
     </Navbar>
   );
 
+  expect(getByTestId('navbar--logo')).toBeInTheDocument();
   expect(getByAltText('logo')).toBeInTheDocument();
 });
